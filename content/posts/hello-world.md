@@ -1,5 +1,6 @@
 ---
 title: "Hello World"
+date: "2023-04-08"
 ---
 
 This is a first fake entry, so lets just say: Hello World.
