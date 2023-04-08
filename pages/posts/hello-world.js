@@ -1,14 +1,8 @@
 import Head from "next/head";
-import {readFile} from "fs/promises";
-
-async function getPost(slug) {
-    return JSON.parse(
-        await readFile(`content/posts/${slug}.json`, "utf-8")
-    );
-}
+import * as posts from "lib/posts";
 
 export async function getStaticProps() {
-    const post = await getPost("hello-world");
+    const post = await posts.getPost("hello-world");
     return {
         props: {
             post
