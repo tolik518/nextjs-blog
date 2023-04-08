@@ -1,12 +1,14 @@
 import Head from "next/head";
+import {readFile} from "fs/promises";
 
-export function getStaticProps() {
+export async function getStaticProps() {
+    const post = JSON.parse(
+        await readFile("content/posts/hello-world.json")
+    );
+
     return {
         props: {
-            post: {
-                title: "Hello World",
-                content: "This is a first fake entry, so lets just say: Hello World.",
-            }
+            post
         }
     }
 }
