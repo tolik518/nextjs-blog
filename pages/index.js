@@ -8,6 +8,13 @@ function HomePage() {
         </Head>
         <main>
             <h1>Moin</h1>
+            <ul>
+                <li>This</li>
+                <li>is</li>
+                <li>just</li>
+                <li>a</li>
+                <li>list</li>
+            </ul>
         </main>
     </>
 }
