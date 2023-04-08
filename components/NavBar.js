@@ -18,7 +18,7 @@ function NavBar() {
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
-            background-color: #81caca;
+            background-color: #4BB;
           }
 
           li {

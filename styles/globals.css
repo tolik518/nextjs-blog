@@ -12,13 +12,13 @@ h1 {
     margin-bottom: 1rem;
 }
 
-a {
+nav a {
     color: #ffffff;
     text-decoration: none;
 
 }
 
-a:focus,
-a:hover {
+nav a:focus,
+nav a:hover {
     text-decoration: underline;
 }
