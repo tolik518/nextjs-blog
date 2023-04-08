@@ -18,9 +18,7 @@ function PostPage({post}) {
         </Head>
         <main>
             <h1>{post.title}</h1>
-            <div>
-                <p> {post.content}</p>
-            </div>
+            <article dangerouslySetInnerHTML={{__html: post.content}}/>
         </main>
     </>
 }
