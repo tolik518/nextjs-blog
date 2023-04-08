@@ -1,4 +1,6 @@
-# Hello World
+---
+title: "Hello World"
+---
 
 This is a first fake entry, so lets just say: Hello World.
 

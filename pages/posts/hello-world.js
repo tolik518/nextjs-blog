@@ -13,12 +13,12 @@ export async function getStaticProps() {
 function PostPage({post}) {
     return <>
         <Head>
-            <title>Blog: About</title>
+            <title>Blog: {post.title}</title>
             <meta name="description" content="About page of the blog" />
         </Head>
+        <h1>{post.title}</h1>
         <main>
-            <h1>{post.title}</h1>
-            <article dangerouslySetInnerHTML={{__html: post.content}}/>
+            <article dangerouslySetInnerHTML={{__html: post.body}}/>
         </main>
     </>
 }
