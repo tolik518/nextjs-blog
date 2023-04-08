@@ -1,8 +1,19 @@
 import Head from "next/head";
 import * as posts from "lib/posts";
 
-export async function getStaticProps() {
-    const post = await posts.getPost("hello-world");
+export async function getStaticPaths() {
+    return {
+        paths: [
+            {params: {slug: "hello-world"}},
+            {params: {slug: "second-post"}}
+        ],
+        fallback: false
+    };
+}
+
+export async function getStaticProps(context) {
+    const params = context.params;
+    const post = await posts.getPost(params.slug);
     return {
         props: {
             post
