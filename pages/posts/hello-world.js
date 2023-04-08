@@ -1,11 +1,14 @@
 import Head from "next/head";
 import {readFile} from "fs/promises";
 
-export async function getStaticProps() {
-    const post = JSON.parse(
-        await readFile("content/posts/hello-world.json")
+async function getPost(slug) {
+    return JSON.parse(
+        await readFile(`content/posts/${slug}.json`, "utf-8")
     );
+}
 
+export async function getStaticProps() {
+    const post = await getPost("hello-world");
     return {
         props: {
             post
@@ -13,7 +16,7 @@ export async function getStaticProps() {
     }
 }
 
-function HelloWorldPage({post}) {
+function PostPage({post}) {
     return <>
         <Head>
             <title>Blog: About</title>
@@ -28,4 +31,4 @@ function HelloWorldPage({post}) {
     </>
 }
 
-export default HelloWorldPage;
+export default PostPage;
