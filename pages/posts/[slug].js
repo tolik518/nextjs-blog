@@ -2,7 +2,7 @@ import Head from "next/head";
 import * as posts from "lib/posts";
 
 export async function getStaticPaths() {
-    const slugs = await posts.getAvailableSlugs();
+    const slugs = await posts.getSlugs();
     return {
         paths: slugs.map((slug) => ({
             params: {slug}

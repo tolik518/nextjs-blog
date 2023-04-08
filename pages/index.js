@@ -1,7 +1,18 @@
 import Head from "next/head";
 import Link from "next/link";
+import * as posts from "lib/posts";
 
-function HomePage() {
+export async function getStaticProps() {
+    const postsSlugAndTitle = await posts.getSlugsAndPostTitle();
+
+    return {
+        props: {
+            postsSlugAndTitle
+        }
+    };
+}
+
+function HomePage({ postsSlugAndTitle }) {
     return <>
         <Head>
             <title>Blog: Home</title>
@@ -10,9 +21,13 @@ function HomePage() {
         <main>
             <h1>Moin</h1>
             <ul>
-                <li>
-                    <Link href="/posts/hello-world">Hello World</Link>
-                </li>
+                {postsSlugAndTitle.map(({ slug, title }) => (
+                    <li key={slug}>
+                        <Link href={`/posts/${slug}`}>
+                            {title}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </main>
     </>
