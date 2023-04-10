@@ -40,8 +40,10 @@ function DarkModeButton() {
                 button:before {
                     content: "${text}";
                 }
+                button:active {
+                    transform: rotate(360deg);
+                }
                 button:hover {
-                    transform: rotate(180deg);
                     margin: 0;
                     padding: 0;
                     height: 2rem;
@@ -59,7 +61,7 @@ function DarkModeButton() {
                     border: 0px solid #ffffff55;
                     border-radius: 100%;
                     cursor: pointer;
-                    transition: transform .3s ease-in-out;
+                    transition-duration: 0.4s;
                     margin: 0;
                     padding: 0;
                     height: 2rem;
