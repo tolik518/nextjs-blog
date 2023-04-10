@@ -21,7 +21,7 @@ function NavBar() {
             align-items: center;
             padding: 0 0;
             margin: 0 0;
-            background-color: #4BB;
+            background-color: rgb(63, 162, 219);
           }
 
           li {
