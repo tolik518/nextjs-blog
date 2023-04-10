@@ -1,9 +1,17 @@
+/* Light */
+:root {
+    --background-color: white;
+    --link-color: rgb(34, 81, 112);
+    --text-color: rgb(31, 31, 31);
+}
+
+
 body {
     font-family: 'Inter', sans-serif;
     font-size: 1.2rem;
     line-height: 1.5;
-    color: #333;
-    background-color: #fff;
+    color: var(--text-color);
+    background-color: var(--background-color);
     margin: 0;
     padding: auto;
 }
@@ -18,10 +26,14 @@ h1 {
     margin-bottom: 1rem;
 }
 
-nav a {
-    color: #ffffff;
+a {
+    color: var(--link-color);
     text-decoration: none;
+}
 
+nav a {
+    color: var(--background-color);
+    text-decoration: none;
 }
 
 nav a:focus,

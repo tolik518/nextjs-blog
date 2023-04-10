@@ -1,12 +1,42 @@
 import { useState } from 'react';
+import DarkTheme from './DarkTheme';
+
+function getDarkModeFromLocalStorage() {
+    // check if we are in the browser, since localstorage is not available on the server
+    if (typeof window === "undefined") {
+        return false;
+    }
+    const darkMode = localStorage.getItem("darkMode");
+
+    // if darkMode is not set, set it and return false
+    if (darkMode === null) {
+        localStorage.setItem("darkMode", JSON.stringify(false));
+        return false;
+    }
+    return JSON.parse(darkMode);
+}
 
 function DarkModeButton() {
-    const [darkMode, setDarkMode] = useState(false);
+    // we need state to trigger a re-render when the dark mode changes?
+    const [darkMode, setDarkMode] = useState(getDarkModeFromLocalStorage());
+
+    const toggleDarkMode = () => {
+        localStorage.setItem("darkMode", JSON.stringify(!darkMode));
+        setDarkMode(getDarkModeFromLocalStorage());
+    }
 
     const text = darkMode ? "🌔" : "🌒";
+
     return (
-        <button onClick={() => setDarkMode(!darkMode)}>
+        <div>
+            <button onClick={() => toggleDarkMode()} suppressHydrationWarning>
+            {darkMode && <DarkTheme/>}
+            </button>
             <style jsx>{`
+                div {
+                    margin-right: 1rem;
+                }
+
                 button:before {
                     content: "${text}";
                 }
@@ -39,7 +69,7 @@ function DarkModeButton() {
                     align-self: center;
                 }
             `}</style>
-        </button>
+        </div>
     )
 }
 
