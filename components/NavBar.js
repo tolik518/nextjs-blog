@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import DarkModeButton from './DarkModeButton';
 
 function NavBar() {
   return (
@@ -12,12 +13,14 @@ function NavBar() {
           <Link href="/about">About</Link>
         </li>
       </ul>
+      <DarkModeButton />
       <style jsx>{`
           nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 0 0;
+            margin: 0 0;
             background-color: #4BB;
           }
 
