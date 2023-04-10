@@ -5,7 +5,7 @@ export async function getStaticPaths() {
     const slugs = await posts.getSlugs();
     return {
         paths: slugs.map((slug) => ({
-            params: {slug}
+            params: { slug }
         })),
         fallback: false
     };
@@ -21,16 +21,17 @@ export async function getStaticProps(context) {
     }
 }
 
-function PostPage({post}) {
+function PostPage({ post }) {
+    const pageTitle = "Blog:" + post.data.title;
     return <>
         <Head>
-            <title>Blog: {post.data.title}</title>
+            <title>{pageTitle}</title>
             <meta name="description" content="About page of the blog" />
         </Head>
-        <h1>{post.data.title}</h1>
-        <p>{post.data.date}</p>
         <main>
-            <article dangerouslySetInnerHTML={{__html: post.body}}/>
+            <h1>{post.data.title}</h1>
+            <p>{post.data.date}</p>
+            <article dangerouslySetInnerHTML={{ __html: post.body }} />
         </main>
         <style jsx>{`
             p {
